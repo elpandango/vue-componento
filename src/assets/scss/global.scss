@@ -1,0 +1,17 @@
+@import "variables";
+@import "normalize";
+
+.sidebar {
+  max-width: 250px;
+  width: 100%;
+}
+
+.main {
+  width: calc(100% - 250px);
+  padding: 16px 50px;
+}
+
+.page-content {
+  display: flex;
+  min-height: 100vh;
+}

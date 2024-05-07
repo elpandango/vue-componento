@@ -1,4 +1,5 @@
 {
+  "author": "Eugen Radchenko",
   "name": "vue-componento",
   "version": "0.0.0",
   "private": true,
@@ -18,6 +19,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
     "gh-pages": "^6.1.1",
+    "sass": "^1.77.0",
     "vite": "^5.2.8"
   }
 }
