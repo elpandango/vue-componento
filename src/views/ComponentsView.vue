@@ -12,6 +12,7 @@
             <li class="accordion-item">Textarea</li>
             <li class="accordion-item">Button</li>
             <li class="accordion-item">Progressbar</li>
+            <li class="accordion-item">Forma</li>
           </ul>
         </template>
       </Accordion>
