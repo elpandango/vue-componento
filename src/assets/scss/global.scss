@@ -1,6 +1,10 @@
 @import "variables";
 @import "normalize";
 
+body, html {
+  font-family: "Roboto", sans-serif;
+}
+
 .sidebar {
   max-width: 250px;
   width: 100%;

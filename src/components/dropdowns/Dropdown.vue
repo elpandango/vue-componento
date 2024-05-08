@@ -1,25 +1,105 @@
 <template>
-  <div class="dropdown">
+  <div
+      class="custom-dropdown"
+      :class="[{'active' : isOpen}]">
     <div
-        class="dropdown-toggle"
-        @click="toggleDropdown">{{ selectedOption.label }}
+        class="select-styled"
+        :style="{minWidth: minWidth}"
+        @click="toggleDropdown">
+      <span id="selected-value">
+        <slot name="header"></slot>
+      </span>
     </div>
     <div
-        class="dropdown-menu"
-        :class="{active: isOpen}">
-      <div
-          class="dropdown-item"
-          v-for="option in options"
-          :key="option.value"
-          @click="selectOption(option)">
-        {{ option.label }}
-      </div>
+        class="select-options-wrap"
+        :style="[{minWidth: minWidth}, {width: dropdownWidth ?? '100%'}]"
+        :class="[dropdownAlign === 'left' ? 'left-side' : 'right-side', noBorder ? 'no-border' : '', withShadow ? 'with-shadow' : '']"
+        ref="options-wrap">
+      <slot name="content"></slot>
     </div>
   </div>
 </template>
 
 <script setup>
 import {ref} from "vue";
+
+const props = defineProps({
+  options: {
+    type: Object
+  },
+  classes: {
+    type: String
+  },
+  initialData: {
+    type: String
+  },
+  bgIsTransparent: {
+    type: Boolean,
+    default: false
+  },
+  direction: {
+    type: String,
+    default: 'down'
+  },
+  dropdownAlign: {
+    type: String,
+    default: 'left'
+  },
+  minWidth: {
+    type: String
+  },
+  dropdownWidth: {
+    type: String
+  },
+  presetsData: {
+    type: Object,
+    default: () => ({
+      'Top 3': {
+        min: 1,
+        max: 3
+      },
+      'Top 5': {
+        min: 1,
+        max: 5
+      },
+      'Top 10': {
+        min: 1,
+        max: 10
+      },
+      'Top 30': {
+        min: 1,
+        max: 30
+      },
+      'Top 50': {
+        min: 1,
+        max: 50
+      },
+    })
+  },
+  dataUpdated: {
+    required: false
+  },
+  dropdownInGlobalBlock: {
+    type: Boolean,
+    default: false
+  },
+  withIcon: {
+    type: Boolean,
+    default: true
+  },
+  withShadow: {
+    type: Boolean,
+    default: false
+  },
+  noBorder: {
+    type: Boolean,
+    default: false
+  },
+  closeDropdown: {
+    type: Number,
+    required: false
+  },
+});
 
 const isOpen = ref(false);
 let selectedOption = ref({value: null, label: 'Please select one'});
@@ -42,39 +122,6 @@ const selectOption = (option) => {
 </script>
 
 <style
+    src="./styles.scss"
     scoped
-    lang="scss">
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-toggle {
-  cursor: pointer;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  display: none;
-}
-
-.dropdown-menu.active {
-  display: block;
-}
-
-.dropdown-item {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.dropdown-item:hover {
-  background-color: #f0f0f0;
-}
-</style>
+    lang="scss"></style>

@@ -1,16 +1,16 @@
 <template>
   <header>
-<!--    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />-->
-
+    <SvgSprite/>
     <div class="wrapper">
 
     </div>
   </header>
 
-  <RouterView />
+  <RouterView/>
 </template>
 
 <script setup>
+import SvgSprite from "@/components/SvgComponents/SvgSprite.vue";
 
 </script>
 
