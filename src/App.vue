@@ -13,6 +13,3 @@
 import SvgSprite from "@/components/SvgComponents/SvgSprite.vue";
 
 </script>
-
-<style>
-</style>

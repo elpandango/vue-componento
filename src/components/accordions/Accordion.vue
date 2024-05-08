@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import {computed, onMounted, ref} from 'vue';
+import {defineProps, computed, ref} from 'vue';
 import SvgIcon from "@/components/SvgComponents/SvgIcon.vue";
 
 const props = defineProps({
@@ -46,27 +46,18 @@ const props = defineProps({
 const isActive = ref(false);
 const contentBlock = ref(null);
 
+const computedHeight = computed(() => {
+  return contentBlock.value ? contentBlock.value.offsetHeight : 0;
+});
+
 const accordionTrigger = (e) => {
   e.stopPropagation();
   isActive.value = !isActive.value;
-}
-
-const computedHeight = computed(() => {
-  if (contentBlock.value?.offsetHeight) {
-    console.log(contentBlock.value.offsetHeight);
-    return contentBlock.value.offsetHeight;
-  }
-  return false;
-});
-
-onMounted(() => {
-  // console.log(contentBlock);
-});
+};
 </script>
 
 <style
     src="./styles.scss"
     scoped
     lang="scss">
-
 </style>
