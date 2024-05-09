@@ -2,7 +2,8 @@
 @import "normalize";
 
 body, html {
-  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  font-family: $main-font;
 }
 
 .sidebar {
@@ -18,4 +19,12 @@ body, html {
 .page-content {
   display: flex;
   min-height: 100vh;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+* {
+  color: $neutral-900;
 }

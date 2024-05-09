@@ -4,7 +4,7 @@ import {createPinia} from 'pinia';
 import App from './App.vue';
 import router from './router';
 
-import SvgIcon from "@/components/SvgComponents/SvgIcon.vue";
+import SvgIcon from "@/components/svgComponents/SvgIcon.vue";
 
 const app = createApp(App);
 

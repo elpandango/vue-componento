@@ -1,15 +1,10 @@
 <template>
-  <header>
-    <SvgSprite/>
-    <div class="wrapper">
-
-    </div>
-  </header>
+  <SvgSprite/>
 
   <RouterView/>
 </template>
 
 <script setup>
-import SvgSprite from "@/components/SvgComponents/SvgSprite.vue";
+import SvgSprite from "@/components/svgComponents/SvgSprite.vue";
 
 </script>

@@ -33,8 +33,8 @@
 </template>
 
 <script setup>
-import {defineProps, computed, ref} from 'vue';
-import SvgIcon from "@/components/SvgComponents/SvgIcon.vue";
+import {computed, ref} from 'vue';
+import SvgIcon from "@/components/svgComponents/SvgIcon.vue";
 
 const props = defineProps({
   height: {
