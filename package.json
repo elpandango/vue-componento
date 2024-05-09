@@ -1,5 +1,12 @@
 {
-  "author": "Eugen Radchenko",
+  "authors": [
+    {
+      "name": "Eugen Radchenko"
+    },
+    {
+      "name": "Nadezhda Junker"
+    }
+  ],
   "name": "vue-componento",
   "version": "0.0.0",
   "private": true,
@@ -13,6 +20,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.9.0",
+    "axios": "^1.6.8",
     "pinia": "^2.1.7",
     "prismjs": "^1.29.0",
     "vue": "^3.4.21",
