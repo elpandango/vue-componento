@@ -1,86 +1,67 @@
 <template>
   <div>
     <h1>Accordions</h1>
-
-    <DemonstrationBox>
+    <DemonstrationBox v-if="storeComponents.componentsLoaded">
       <template v-slot:demo-slot>
         <Accordion>
           <template v-slot:header>
-            <div class="link-text">Components</div>
+            <div class="link-text">Accordion Title</div>
           </template>
           <template v-slot:accordion-body>
             <ul class="link-sublist">
-              <router-link
-                  :to="{name: 'Inputs'}"
-                  class="accordion-item"
-                  active-class="active"
-                  tag="li">Input
-              </router-link>
-              <li class="accordion-item">Textarea</li>
-              <li class="accordion-item">Button</li>
-              <li class="accordion-item">Progressbar</li>
-              <li class="accordion-item">Forma</li>
-              <router-link
-                  :to="{name: 'Accordions'}"
-                  class="accordion-item"
-                  active-class="active"
-                  tag="li">Accordions
-              </router-link>
+              <li class="accordion-item">Item 1</li>
+              <li class="accordion-item">Item 2</li>
+              <li class="accordion-item">Item 3</li>
+              <li class="accordion-item">Item 4</li>
             </ul>
           </template>
         </Accordion>
       </template>
       <template v-slot:code-slot>
-       <pre class="language-html">
-    <code>
-&lt;Accordion&gt;
-  &lt;template v-slot:header&gt;
-    &lt;div class="link-text"&gt;Components&lt;/div&gt;
-  &lt;/template&gt;
-  &lt;template v-slot:accordion-body&gt;
-    &lt;ul class="link-sublist"&gt;
-      &lt;router-link
-        :to="{name: 'Inputs'}"
-        class="accordion-item"
-        active-class="active"
-        tag="li"&gt;Input
-      &lt;/router-link&gt;
-      &lt;li class="accordion-item"&gt;Textarea&lt;/li&gt;
-      &lt;li class="accordion-item"&gt;Button&lt;/li&gt;
-      &lt;li class="accordion-item"&gt;Progressbar&lt;/li&gt;
-      &lt;li class="accordion-item"&gt;Forma&lt;/li&gt;
-      &lt;router-link
-        :to="{name: 'Accordions'}"
-        class="accordion-item"
-        active-class="active"
-        tag="li"&gt;Accordions
-      &lt;/router-link&gt;
-    &lt;/ul&gt;
-  &lt;/template&gt;
-&lt;/Accordion&gt;
-    </code>
-  </pre>
+        <pre>
+        <code class="language-html" v-html="accordion"></code>
+      </pre>
       </template>
     </DemonstrationBox>
   </div>
 </template>
 
 <script setup>
+import {ref, watch} from "vue";
 import DemonstrationBox from "@/components/demonstration/DemonstrationBox.vue";
 import Accordion from "@/components/accordions/Accordion.vue";
 import Prism from "prismjs";
 import "prismjs/themes/prism-tomorrow.min.css";
-import {onMounted} from "vue"; // you can change
+import {onMounted} from "vue";
+import {useStoreComponents} from "@/stores/storeComponents.js";
 
-onMounted(() => {
+const storeComponents = useStoreComponents();
+
+let accordion = ref('');
+
+function decodeHtmlEntities(encodedString) {
+  return encodedString.replace(/&amp;/g, '&')
+   .replace(/&lt;/g, '<')
+   .replace(/&gt;/g, '>')
+   .replace(/&quot;/g, '"')
+   .replace(/&#39;/g, "'");
+}
+
+onMounted(async () => {
   window.Prism = window.Prism || {};
   window.Prism.manual = true;
-  Prism.highlightAll(); // highlight your code on mount
+  await storeComponents.getComponents('accordion');
+});
+
+watch(() => storeComponents.componentsLoaded, (newValue, oldValue) => {
+  if (storeComponents.componentsLoaded) {
+    const tempValue = decodeHtmlEntities(storeComponents.components[0].content.code);
+    accordion.value = tempValue.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    setTimeout(() => {
+      Prism.highlightAll();
+    }, 100);
+
+  }
 });
 </script>
-
-<style
-    scoped
-    lang="scss">
-
-</style>
