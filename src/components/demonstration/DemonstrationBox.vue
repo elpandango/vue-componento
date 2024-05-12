@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="col w50p">
         <div class="col-title">
-          Demo
+
         </div>
         <div class="col-content">
           <slot name="demo-slot"></slot>
@@ -34,6 +34,8 @@
 }
 .columns {
   display: flex;
+  margin: 0 -16px;
+  width: calc(100% + 32px);
 }
 
 .col.w50p {
@@ -48,5 +50,9 @@
   padding: 6px;
   border-radius: 4px 4px 0 0;
   font-size: 14px;
+}
+
+.col-content {
+  overflow-x: auto;
 }
 </style>

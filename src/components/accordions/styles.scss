@@ -1,4 +1,4 @@
-.basic-accordion {
+.accordion {
   width: 100%;
   overflow: hidden;
   transition: height .3s;
@@ -15,18 +15,25 @@
     justify-content: space-between;
     cursor: pointer;
 
-    &.jcfs {
+    &.left {
       justify-content: flex-start;
     }
-    &.jcfe {
+
+    &.right {
       justify-content: flex-end;
     }
+
+    &.center {
+      justify-content: center;
+    }
+  }
+
+  .link-text {
+    color: $neutral-900;
   }
 }
 
-.basic-accordion.active {
-  margin-bottom: 2px;
-
+.accordion.active {
   .accordion-inner-content {
     background-color: inherit;
     border-radius: 0 25px 25px 0;
@@ -42,6 +49,33 @@
     visibility: visible;
     position: relative;
     pointer-events: all;
+  }
+}
+
+//Basic accordion
+.accordion.basic {
+  .header-block {
+    background-color: $primary-default;
+    padding: 0 8px;
+    border-radius: 4px;
+    transition: background-color .3s;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+
+  .link-text, .icon-wrap {
+    color: #fff;
+  }
+
+  .content-item {
+    padding: 16px 8px;
+  }
+}
+.accordion.basic.active {
+  .content-block {
+    border: 1px solid $neutral-500;
   }
 }
 
@@ -63,4 +97,6 @@
   overflow: hidden;
   max-height: 0;
   transition: all .3s;
+  border: 0 solid $neutral-500;
+  border-radius: 0 0 4px 4px;
 }

@@ -10,7 +10,7 @@
 
 <style lang="scss">
 .sidebar {
-  background-color: $neutral-200;
+  background-color: $neutral-400;
   padding: 16px 8px;
 }
 </style>

@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia';
-import {collection, onSnapshot, query, orderBy, doc, getDoc} from "firebase/firestore";
+import {collection, onSnapshot, query, orderBy} from "firebase/firestore";
 import {db} from '@/utils/firebase.js';
 
 let componentsCollectionRef;
@@ -34,11 +34,7 @@ export const useStoreComponents = defineStore('storeComponents', {
                 } else {
                     this.components = components;
                 }
-                console.log('components: ', this.components);
-                // this.components = components;
                 this.componentsLoaded = true;
-
-                console.log('componentsLoaded: ', this.componentsLoaded);
             });
         },
     },

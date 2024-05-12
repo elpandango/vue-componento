@@ -1,9 +1,12 @@
 @import "variables";
 @import "normalize";
+@import "margins";
 
 body, html {
   box-sizing: border-box;
   font-family: $main-font;
+  color: $neutral-900;
+  background-color: $neutral-200;
 }
 
 .sidebar {
@@ -25,6 +28,29 @@ body, html {
   padding: 0 16px;
 }
 
-* {
-  color: $neutral-900;
+pre {
+  position: relative;
+}
+
+a {
+  color: inherit;
+}
+
+code.language-html {
+  & > span.token.tag:first-child {
+    position: absolute;
+    left: 17px;
+  }
+}
+
+.demo-block {
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+
+}
+
+.component-description {
+  margin-bottom: 1.5rem;
 }

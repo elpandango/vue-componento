@@ -2,7 +2,7 @@
   <div class="page-content">
     <Sidebar>
 
-      <Accordion>
+      <Accordion height="32px">
         <template v-slot:header>
           <div class="link-text">Components</div>
         </template>
