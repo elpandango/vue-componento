@@ -1,0 +1,68 @@
+.demo-box {
+  pre[class*=language-] {
+    margin: 0;
+  }
+  .code-title {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    display: inline-block;
+    padding: 6px;
+    border-radius: 4px 4px 0 0;
+    font-size: 14px;
+  }
+
+  .col-content {
+    overflow-x: auto;
+    position: relative;
+  }
+
+  .copy-btn-block {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+  }
+
+  .copy-btn {
+    background-color: #3e8ed0;
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 8px 16px;
+    position: relative;
+
+    &:before {
+      content: 'Copied!';
+      position: absolute;
+      top: 0;
+      left: calc(-100% + -20px);
+      outline: none;
+      border-radius: 4px;
+      font-size: 16px;
+      padding: 9px 16px;
+      background-color: $secondary-dark-green;
+      cursor: default;
+      pointer-events: none;
+      display: none;
+    }
+  }
+
+  .copy-btn.active {
+    &:before {
+      display: block;
+    }
+  }
+}
+.columns {
+  display: flex;
+  margin: 0 -16px;
+  width: calc(100% + 32px);
+}
+
+.col.w50p {
+  width: 50%;
+  padding: 0 12px;
+}

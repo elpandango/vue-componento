@@ -6,7 +6,8 @@
       <div class="component-description">
         Here you can use our basic Inputs.
       </div>
-      <DemonstrationBox v-if="storeComponents.componentsLoaded">
+      <DemonstrationBox v-if="storeComponents.componentsLoaded"
+                        @copy-clicked="copyClicked">
         <template v-slot:demo-slot>
           <input type="text">
         </template>
@@ -25,8 +26,9 @@
 import {reactive, watch} from "vue";
 import {onMounted} from "vue";
 import {useStoreComponents} from "@/stores/storeComponents.js";
-import {decodeHtmlEntities} from '@/use/useDecodeHtml.js';
+import {useDecodeHtmlEntities} from '@/use/useDecodeHtml.js';
 import {usePrismInitialization} from '@/use/usePrismInitialization.js';
+import {useCopyClickedHandler} from "@/use/useCopyClicked.js";
 
 const storeComponents = useStoreComponents();
 
@@ -44,18 +46,20 @@ const ComponentType = {
   Basic: 'Basic Input',
 };
 
+const copyClicked = (target) => {
+  useCopyClickedHandler(target);
+};
+
 watch(() => storeComponents.componentsLoaded, (newValue, oldValue) => {
   if (storeComponents.componentsLoaded) {
-
-    console.log(storeComponents.components);
-
     storeComponents.components.forEach(component => {
-      const tempValue = decodeHtmlEntities(component.content.code);
+      const tempValue = useDecodeHtmlEntities(component.content.code);
       const replacedValue = tempValue.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-      console.log(component.content.title);
-      if (component.content.title === ComponentType.Basic) {
-        input.basic = replacedValue;
+      switch (component.content.title) {
+        case ComponentType.Basic:
+          input.basic = replacedValue;
+          break;
       }
     });
 

@@ -2,10 +2,6 @@ import {defineStore} from 'pinia';
 import {collection, onSnapshot, query, orderBy} from "firebase/firestore";
 import {db} from '@/utils/firebase.js';
 
-let componentsCollectionRef;
-let componentsCollectionQuery;
-let getComponentsSnapshot = null;
-
 export const useStoreComponents = defineStore('storeComponents', {
     state: () => {
         return {
@@ -16,8 +12,7 @@ export const useStoreComponents = defineStore('storeComponents', {
     actions: {
         async getComponents(type) {
             this.componentsLoaded = false;
-            componentsCollectionRef = collection(db, "components");
-            componentsCollectionQuery = query(componentsCollectionRef, orderBy("date", "desc"));
+            const componentsCollectionQuery = query(collection(db, "components"), orderBy("date", "desc"));
             onSnapshot(componentsCollectionQuery, (querySnapshot) => {
                 let components = [];
                 querySnapshot.forEach((doc) => {
@@ -41,7 +36,7 @@ export const useStoreComponents = defineStore('storeComponents', {
     getters: {
         getComponentContent: (state) => {
             return (id) => {
-                return state.components.filter(component => component.id === id)[0].content;
+                return state?.components?.filter(component => component?.id === id)[0]?.content;
             }
         },
     },

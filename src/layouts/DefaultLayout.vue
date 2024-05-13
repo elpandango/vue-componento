@@ -2,7 +2,8 @@
   <div class="page-content">
     <Sidebar>
 
-      <Accordion height="32px">
+      <Accordion height="32px"
+                 is-active-on-init="true">
         <template v-slot:header>
           <div class="link-text">Components</div>
         </template>
@@ -32,23 +33,6 @@
         </template>
       </Accordion>
 
-      <Accordion>
-        <template v-slot:header>
-          <div class="link-text">Templates</div>
-        </template>
-        <template v-slot:accordion-body>
-          <ul class="link-sublist">
-            <li class="accordion-item">Input</li>
-            <li class="accordion-item">Textarea</li>
-            <li class="accordion-item">Button</li>
-            <li class="accordion-item">Progressbar</li>
-            <li class="accordion-item">Textarea</li>
-            <li class="accordion-item">Button</li>
-            <li class="accordion-item">Progressbar</li>
-          </ul>
-        </template>
-      </Accordion>
-
     </Sidebar>
     <main class="main">
       <router-view></router-view>
@@ -62,8 +46,8 @@ import Accordion from "@/components/accordions/Accordion.vue";
 </script>
 
 <style
-    scoped
-    lang="scss">
+ scoped
+ lang="scss">
 .accordion-item {
   line-height: 32px;
   display: block;
