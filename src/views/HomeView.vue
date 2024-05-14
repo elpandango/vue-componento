@@ -1,7 +1,7 @@
 <template>
   <div class="index-page-content">
     <div class="container">
-      <h1 class="index-page-title">Vue Componento</h1>
+      <h1 class="text-page-title text-center">Vue Componento</h1>
       <div class="page-slogan">
         Modern. Convenient. Swift.
       </div>
@@ -31,8 +31,7 @@
 </script>
 
 <style
-    lang="scss"
-    scoped>
+    lang="scss">
 .index-page-content {
   min-height: 100vh;
   display: flex;
@@ -44,50 +43,46 @@
     flex-direction: column;
     justify-content: center;
   }
-}
 
-.index-page-title {
-  font-size: 52px;
-  text-align: center;
-}
 
-.page-slogan {
-  font-size: 32px;
-  text-align: center;
-  margin-bottom: 26px;
-}
+  .page-slogan {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 26px;
+  }
 
-.description {
-  max-width: 850px;
-  margin: 0 auto 32px;
-  font-size: 18px;
-  line-height: 26px;
-  text-align: center;
-}
+  .description {
+    max-width: 850px;
+    margin: 0 auto 32px;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+  }
 
-.btn-block {
-  margin: 0 auto;
-  text-align: center;
-}
+  .btn-block {
+    margin: 0 auto;
+    text-align: center;
+  }
 
-.btn-default {
-  align-items: center;
-  background-color: $primary-default;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  display: inline-flex;
-  font-size: 16px;
-  height: 48px;
-  justify-content: center;
-  line-height: 1.5;
-  outline: none;
-  transition: all .3s;
-  text-decoration: none;
-  padding: 0 24px;
+  .btn-default {
+    align-items: center;
+    background-color: $primary-default;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    display: inline-flex;
+    font-size: 16px;
+    height: 48px;
+    justify-content: center;
+    line-height: 1.5;
+    outline: none;
+    transition: all .3s;
+    text-decoration: none;
+    padding: 0 24px;
 
-  &:hover {
-    background-color: $primary-hover;
+    &:hover {
+      background-color: $primary-hover;
+    }
   }
 }
 </style>

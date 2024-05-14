@@ -2,6 +2,11 @@
   <div class="page-content">
     <Sidebar>
 
+      <router-link class="sidebar-link"
+                   active-class="active"
+                   :to="{name: 'ColorPalette'}">Color Palette
+      </router-link>
+
       <Accordion height="32px"
                  is-active-on-init="true">
         <template v-slot:header>
@@ -48,6 +53,25 @@ import Accordion from "@/components/accordions/Accordion.vue";
 <style
  scoped
  lang="scss">
+.sidebar-link {
+  line-height: 32px;
+  padding: 0 8px;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+  border-radius: 4px;
+  transition: all .3s;
+
+  &:hover {
+    background-color: $neutral-500;
+  }
+
+  &.active {
+    font-weight: bold;
+    background-color: $neutral-600;
+  }
+}
+
 .accordion-item {
   line-height: 32px;
   display: block;
@@ -57,12 +81,12 @@ import Accordion from "@/components/accordions/Accordion.vue";
   padding: 0 8px;
 
   &:hover {
-    background-color: $neutral-400;
+    background-color: $neutral-500;
   }
 
   &.active {
     font-weight: bold;
-    background-color: $neutral-500;
+    background-color: $neutral-600;
   }
 }
 

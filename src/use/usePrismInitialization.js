@@ -8,3 +8,9 @@ export function usePrismInitialization() {
         window.Prism.manual = true;
     });
 }
+
+export function usePrismHighlighting() {
+    setTimeout(() => {
+        Prism.highlightAll();
+    }, 100);
+}

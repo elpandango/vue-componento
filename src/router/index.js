@@ -22,6 +22,7 @@ const router = createRouter({
         {path: '', name: 'Components', component: ComponentsView},
         {path: 'inputs', name: 'Inputs', component: () => import(/* webpackChunkName: "about" */ '../views/InputsView.vue')},
         {path: 'accordions', name: 'Accordions', component: () => import(/* webpackChunkName: "about" */ '../views/AccordionsView.vue')},
+        {path: 'color-palette', name: 'ColorPalette', component: () => import(/* webpackChunkName: "about" */ '../views/ColorPaletteView.vue')},
       ]
     },
   ]

@@ -6,8 +6,7 @@
       <div class="component-description">
         Here you can use our basic Inputs.
       </div>
-      <DemonstrationBox v-if="storeComponents.componentsLoaded"
-                        @copy-clicked="copyClicked">
+      <DemonstrationBox>
         <template v-slot:demo-slot>
           <input type="text">
         </template>
@@ -23,50 +22,37 @@
 </template>
 
 <script setup>
-import {reactive, watch} from "vue";
+import {reactive, ref} from "vue";
 import {onMounted} from "vue";
 import {useStoreComponents} from "@/stores/storeComponents.js";
 import {useDecodeHtmlEntities} from '@/use/useDecodeHtml.js';
-import {usePrismInitialization} from '@/use/usePrismInitialization.js';
-import {useCopyClickedHandler} from "@/use/useCopyClicked.js";
+import {usePrismInitialization, usePrismHighlighting} from '@/use/usePrismInitialization.js';
 
 const storeComponents = useStoreComponents();
+const components = ref([]);
 
 let input = reactive({
   basic: null,
 });
 
-usePrismInitialization();
-
-onMounted(async () => {
-  await storeComponents.getComponents('input');
-});
-
+// Component types enums
 const ComponentType = {
   Basic: 'Basic Input',
 };
 
-const copyClicked = (target) => {
-  useCopyClickedHandler(target);
-};
+onMounted(async () => {
+  components.value = storeComponents.getComponentByType('input');
+  components.value.forEach(component => {
+    const replacedValue = useDecodeHtmlEntities(component.content.code);
 
-watch(() => storeComponents.componentsLoaded, (newValue, oldValue) => {
-  if (storeComponents.componentsLoaded) {
-    storeComponents.components.forEach(component => {
-      const tempValue = useDecodeHtmlEntities(component.content.code);
-      const replacedValue = tempValue.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    switch (component.content.title) {
+      case ComponentType.Basic:
+        input.basic = replacedValue;
+        break;
+    }
+  });
 
-      switch (component.content.title) {
-        case ComponentType.Basic:
-          input.basic = replacedValue;
-          break;
-      }
-    });
-
-    setTimeout(() => {
-      Prism.highlightAll();
-    }, 100);
-
-  }
+  usePrismInitialization();
+  usePrismHighlighting();
 });
 </script>

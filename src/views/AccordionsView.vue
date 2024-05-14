@@ -8,8 +8,7 @@
         Also you can set the Accordion to be opened by default, just adding
         is-active-on-init="true" parameter.
       </div>
-      <DemonstrationBox v-if="storeComponents.componentsLoaded"
-                        @copy-clicked="copyClicked">
+      <DemonstrationBox>
         <template v-slot:demo-slot>
           <div class="accordions-block">
             <Accordion type="basic"
@@ -65,8 +64,7 @@
         but without caret.
         Also you can add aligning of header text.
       </div>
-      <DemonstrationBox v-if="storeComponents.componentsLoaded"
-                        @copy-clicked="copyClicked">
+      <DemonstrationBox>
         <template v-slot:demo-slot>
           <div class="accordions-block">
             <Accordion type="basic"
@@ -122,25 +120,19 @@
 </template>
 
 <script setup>
-import {reactive, watch} from "vue";
+import {reactive, ref} from "vue";
 import Accordion from "@/components/accordions/Accordion.vue";
 import {onMounted} from "vue";
 import {useStoreComponents} from "@/stores/storeComponents.js";
 import {useDecodeHtmlEntities} from '@/use/useDecodeHtml.js';
-import {usePrismInitialization} from '@/use/usePrismInitialization.js';
-import {useCopyClickedHandler} from '@/use/useCopyClicked.js';
+import {usePrismInitialization, usePrismHighlighting} from '@/use/usePrismInitialization.js';
 
 const storeComponents = useStoreComponents();
+const components = ref([]);
 
 let accordion = reactive({
   noCaret: null,
   group: null,
-});
-
-usePrismInitialization();
-
-onMounted(async () => {
-  await storeComponents.getComponents('accordion');
 });
 
 // Component types enums
@@ -149,30 +141,22 @@ const ComponentType = {
   AccordionGroup: 'Accordion Group'
 };
 
-const copyClicked = (target) => {
-  useCopyClickedHandler(target);
-};
+onMounted(async () => {
+  components.value = storeComponents.getComponentByType('accordion');
+  components.value.forEach(component => {
+    const replacedValue = useDecodeHtmlEntities(component.content.code);
 
-watch(() => storeComponents.componentsLoaded, (newValue, oldValue) => {
-  if (storeComponents.componentsLoaded) {
-    storeComponents.components.forEach(component => {
-      const tempValue = useDecodeHtmlEntities(component.content.code);
-      const replacedValue = tempValue.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    switch (component.content.title) {
+      case ComponentType.AccordionWithoutCaret:
+        accordion.noCaret = replacedValue;
+        break;
+      case ComponentType.AccordionGroup:
+        accordion.group = replacedValue;
+        break;
+    }
+  });
 
-      switch (component.content.title) {
-        case ComponentType.AccordionWithoutCaret:
-          accordion.noCaret = replacedValue;
-          break;
-        case ComponentType.AccordionGroup:
-          accordion.group = replacedValue;
-          break;
-      }
-    });
-
-    setTimeout(() => {
-      Prism.highlightAll();
-    }, 100);
-
-  }
+  usePrismInitialization();
+  usePrismHighlighting();
 });
 </script>

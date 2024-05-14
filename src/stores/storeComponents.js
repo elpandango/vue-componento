@@ -10,7 +10,7 @@ export const useStoreComponents = defineStore('storeComponents', {
         }
     },
     actions: {
-        async getComponents(type) {
+        async getComponents() {
             this.componentsLoaded = false;
             const componentsCollectionQuery = query(collection(db, "components"), orderBy("date", "desc"));
             onSnapshot(componentsCollectionQuery, (querySnapshot) => {
@@ -23,20 +23,17 @@ export const useStoreComponents = defineStore('storeComponents', {
                     };
                     components.push(component);
                 });
-
-                if (type) {
-                    this.components = components.filter(comp => comp.content.type === type);
-                } else {
-                    this.components = components;
-                }
+                this.components = components;
                 this.componentsLoaded = true;
             });
         },
     },
     getters: {
-        getComponentContent: (state) => {
-            return (id) => {
-                return state?.components?.filter(component => component?.id === id)[0]?.content;
+        getComponentByType: (state) => (type) => {
+            if (type) {
+                return state.components.filter(comp => comp.content.type === type);
+            } else {
+                return state.components;
             }
         },
     },
