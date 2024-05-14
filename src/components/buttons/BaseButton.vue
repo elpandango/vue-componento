@@ -1,5 +1,5 @@
 <template>
-  <div>button</div>
+  <button class="button">Button</button>
 </template>
 
 <script setup>
@@ -8,6 +8,7 @@
 
 <style
     scoped
+    src="./styles.scss"
     lang="scss">
 
 </style>
