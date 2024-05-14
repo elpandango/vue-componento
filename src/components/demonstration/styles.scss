@@ -18,8 +18,8 @@
 
   .copy-btn-block {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 3px;
+    right: 3px;
     z-index: 5;
   }
 
@@ -37,13 +37,15 @@
     &:before {
       content: 'Copied!';
       position: absolute;
-      top: 0;
-      left: calc(-100% + -20px);
+      top: -2px;
+      left: -16px;
+      //left: calc(-100% + -20px);
       outline: none;
       border-radius: 4px;
       font-size: 16px;
-      padding: 9px 16px;
+      padding: 10px 16px;
       background-color: $secondary-dark-green;
+      border-color: transparent;
       cursor: default;
       pointer-events: none;
       display: none;
