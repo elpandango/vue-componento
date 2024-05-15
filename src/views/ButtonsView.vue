@@ -7,7 +7,7 @@
           <div class="component-description">
             Here you can use our basic Buttons.
         </div>
-
+      </div>
     </div>
   </div>
 </template>
