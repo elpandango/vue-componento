@@ -7,7 +7,7 @@
 </script>
 
 <style
-    scoped
+    scope
     src="./styles.scss"
     lang="scss">
 
