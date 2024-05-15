@@ -12,7 +12,7 @@
         </template>
         <template v-slot:code-slot>
         <pre>
-        <code class="language-html" v-html="input.basic"></code>
+        <code class="language-html" v-html="templateComponent.basic"></code>
       </pre>
         </template>
       </DemonstrationBox>
@@ -31,7 +31,7 @@ import {usePrismInitialization, usePrismHighlighting} from '@/use/usePrismInitia
 const storeComponents = useStoreComponents();
 const components = ref([]);
 
-let input = reactive({
+let templateComponent = reactive({
   basic: null,
 });
 
@@ -47,7 +47,7 @@ onMounted(async () => {
 
     switch (component.content.title) {
       case ComponentType.Basic:
-        input.basic = replacedValue;
+        templateComponent.basic = replacedValue;
         break;
     }
   });

@@ -51,7 +51,7 @@
         </template>
         <template v-slot:code-slot>
         <pre>
-        <code class="language-html" v-html="accordion.group"></code>
+        <code class="language-html" v-html="templateComponent.group"></code>
       </pre>
         </template>
       </DemonstrationBox>
@@ -111,7 +111,7 @@
         </template>
         <template v-slot:code-slot>
         <pre>
-          <code class="language-html" v-html="accordion.noCaret"></code>
+          <code class="language-html" v-html="templateComponent.noCaret"></code>
         </pre>
         </template>
       </DemonstrationBox>
@@ -130,7 +130,7 @@ import {usePrismInitialization, usePrismHighlighting} from '@/use/usePrismInitia
 const storeComponents = useStoreComponents();
 const components = ref([]);
 
-let accordion = reactive({
+let templateComponent = reactive({
   noCaret: null,
   group: null,
 });
@@ -148,10 +148,10 @@ onMounted(async () => {
 
     switch (component.content.title) {
       case ComponentType.AccordionWithoutCaret:
-        accordion.noCaret = replacedValue;
+        templateComponent.noCaret = replacedValue;
         break;
       case ComponentType.AccordionGroup:
-        accordion.group = replacedValue;
+        templateComponent.group = replacedValue;
         break;
     }
   });
