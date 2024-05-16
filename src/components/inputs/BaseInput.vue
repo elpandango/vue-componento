@@ -1,6 +1,6 @@
 <template>
   <div class="form-block">
-    <label>{{ label }}</label>
+    <label v-if="label">{{ label }}</label>
     <input type="text"
            class="form-input"
            @input="$emit('update:modelValue', $event.target.value)"
@@ -8,7 +8,7 @@
            :value="modelValue"
            :placeholder="placeholder">
 
-    <div v-if="errorMessage"
+    <div v-if="!!errorMessage"
          class="error-message">
       {{ errorMessage }}
     </div>

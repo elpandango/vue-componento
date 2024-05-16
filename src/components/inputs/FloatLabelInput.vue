@@ -6,8 +6,9 @@
            :value="modelValue"
            @input="$emit('update:modelValue', $event.target.value)"
            :placeholder="placeholder">
-    <label :class="{frozen: modelValue !== ''}">{{ label }}</label>
-    <div v-if="errorMessage"
+    <label v-if="label"
+           :class="{frozen: modelValue !== ''}">{{ label }}</label>
+    <div v-if="!!errorMessage"
          class="error-message">
       {{ errorMessage }}
     </div>
