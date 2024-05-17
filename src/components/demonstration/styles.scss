@@ -20,48 +20,6 @@
       overflow: visible;
     }
   }
-
-  .copy-btn-block {
-    position: absolute;
-    top: 3px;
-    right: 3px;
-    z-index: 5;
-  }
-
-  .copy-btn {
-    background-color: $primary-80;
-    border-color: transparent;
-    color: #fff;
-    cursor: pointer;
-    outline: none;
-    border-radius: 4px;
-    font-size: 16px;
-    padding: 8px 16px;
-    position: relative;
-
-    &:before {
-      content: 'Copied!';
-      position: absolute;
-      top: -2px;
-      left: -16px;
-      //left: calc(-100% + -20px);
-      outline: none;
-      border-radius: 4px;
-      font-size: 16px;
-      padding: 10px 16px;
-      background-color: $green-100;
-      border-color: transparent;
-      cursor: default;
-      pointer-events: none;
-      display: none;
-    }
-  }
-
-  .copy-btn.active {
-    &:before {
-      display: block;
-    }
-  }
 }
 .columns {
   display: flex;
