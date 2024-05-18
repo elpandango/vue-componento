@@ -2,7 +2,7 @@
   <div class="demo-box">
     <div class="columns">
       <div class="col w50p">
-        <div class="col-content">
+        <div class="col-content no-overflow">
           <slot name="demo-slot"></slot>
         </div>
       </div>

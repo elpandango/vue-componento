@@ -13,7 +13,12 @@
 
   .col-content {
     overflow-x: auto;
+    overflow-y: visible;
     position: relative;
+
+    &.no-overflow {
+      overflow: visible;
+    }
   }
 
   .copy-btn-block {
@@ -24,7 +29,7 @@
   }
 
   .copy-btn {
-    background-color: #3e8ed0;
+    background-color: $primary-80;
     border-color: transparent;
     color: #fff;
     cursor: pointer;
@@ -44,7 +49,7 @@
       border-radius: 4px;
       font-size: 16px;
       padding: 10px 16px;
-      background-color: $secondary-dark-green;
+      background-color: $green-100;
       border-color: transparent;
       cursor: default;
       pointer-events: none;
