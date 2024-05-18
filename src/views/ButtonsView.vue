@@ -11,9 +11,6 @@
         <template v-slot:demo-slot>
           <Button>
           </Button>
-          <Button class="btn-small">
-          </Button>
-          <!-- <input type="text"> -->
         </template>
         <template v-slot:code-slot>
         <pre>

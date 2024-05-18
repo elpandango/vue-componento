@@ -9,34 +9,34 @@
     border: transparent;
     background-color: $primary-default;
     cursor: pointer;
+    transition: all .3s;
    
     &:hover, 
     &:focus,
     &:active {
       background-color: $primary-hover;
+
     }
     &:disabled {
-        background-color: $neutral-400;
+        background-color: $neutral-600;
     }
-  }
 
-  .btn {
-    &-small {
+    &.small {
         padding: 8px 14px;
         font-size: 14px;
       }
-    &-large {
+    &.large {
         padding: 8px 16px;
       }
-    &-destructive {
-        background-color: $secondary-red;
+    &.destructive {
+        background-color: $red-100;
         &:hover, 
         &:focus,
         &:active {
-      background-color: $secondary-orange;
-    }
-    }
-    &-white {
+          background-color: $red-60;
+        }
+      }
+    &.white {
         background-color: $neutral-0;
         border: 1px solid $primary-default;
         color: $primary-default;
@@ -45,9 +45,9 @@
         &:active {
             background-color: $neutral-600;
         }
-         &:disabled {
+          &:disabled {
             background-color: $neutral-400;
         }
-    }
+      }
   }
 
