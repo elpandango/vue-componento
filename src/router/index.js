@@ -24,6 +24,7 @@ const router = createRouter({
         {path: 'accordions', name: 'Accordions', component: () => import('../views/AccordionsView.vue')},
         {path: 'color-palette', name: 'ColorPalette', component: () => import('../views/ColorPaletteView.vue')},
         {path: 'buttons', name: 'Buttons', component: () => import('../views/ButtonsView.vue')},
+        {path: 'skeletons', name: 'Skeletons', component: () => import('../views/SkeletonsView.vue')},
       ]
     },
   ]

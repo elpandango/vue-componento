@@ -30,6 +30,14 @@
                tag="li">Input
               </router-link>
             </li>
+            <li>
+              <router-link
+               :to="{name: 'Skeletons'}"
+               class="accordion-item"
+               active-class="active"
+               tag="li">Skeleton-boxes
+              </router-link>
+            </li>
             <li class="accordion-item">Textarea</li>
             <li class="accordion-item">Button</li>
             <li class="accordion-item">Progressbar</li>

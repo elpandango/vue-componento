@@ -19,6 +19,14 @@
     &.no-overflow {
       overflow: visible;
     }
+
+    &:hover {
+      .copy-btn-block {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+      }
+    }
   }
 }
 .columns {
