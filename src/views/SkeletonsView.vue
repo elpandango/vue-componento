@@ -45,7 +45,7 @@
     <div class="demo-block mar-b-10">
       <h3 class="page-subtitle">Skeleton Blocks</h3>
       <div class="component-description">
-        Here you can use our Skeleton blocks:
+        Here you can use Skeleton blocks:
       </div>
       <DemonstrationBox>
         <template v-slot:demo-slot>
@@ -54,7 +54,33 @@
         <template v-slot:code-slot>
 <pre class="default-positioning">
 <code class="language-markup">
-&lt;div class="skeleton-block"&gt;Short Title&lt;/div&gt;
+&lt;div class="skeleton-block"&gt;&lt;/div&gt;
+</code>
+</pre>
+        </template>
+      </DemonstrationBox>
+    </div>
+
+    <div class="demo-block mar-b-10">
+      <div class="component-description">
+        Also you can change skeleton block height by adding text into it.
+      </div>
+      <DemonstrationBox>
+        <template v-slot:demo-slot>
+          <div class="skeleton-block">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore error odit sed tempora. Cupiditate, dolores ducimus eveniet hic id ipsam ipsum labore magnam molestias non porro quasi quibusdam quos rem totam unde voluptate. Ad aliquid assumenda, culpa, deserunt dolores eius eligendi eos ipsa ipsum laborum obcaecati quidem quod repellendus tempora tempore totam voluptatum. At, dicta?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore error odit sed tempora. Cupiditate, dolores ducimus eveniet hic id ipsam ipsum labore magnam molestias non porro quasi quibusdam quos rem totam unde voluptate. Ad aliquid assumenda, culpa, deserunt dolores eius eligendi eos ipsa ipsum laborum obcaecati quidem quod repellendus tempora tempore totam voluptatum. At, dicta?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore error odit sed tempora. Cupiditate, dolores ducimus eveniet hic id ipsam ipsum labore magnam molestias non porro quasi quibusdam quos rem totam unde voluptate. Ad aliquid assumenda, culpa, deserunt dolores eius eligendi eos ipsa ipsum laborum obcaecati quidem quod repellendus tempora tempore totam voluptatum. At, dicta?
+          </div>
+        </template>
+        <template v-slot:code-slot>
+<pre class="default-positioning">
+<code class="language-markup">
+&lt;div class="skeleton-block"&gt;
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore error odit sed tempora. Cupiditate, dolores ducimus eveniet hic id ipsam ipsum labore magnam molestias non porro quasi quibusdam quos rem totam unde voluptate. Ad aliquid assumenda, culpa, deserunt dolores eius eligendi eos ipsa ipsum laborum obcaecati quidem quod repellendus tempora tempore totam voluptatum. At, dicta?
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore error odit sed tempora. Cupiditate, dolores ducimus eveniet hic id ipsam ipsum labore magnam molestias non porro quasi quibusdam quos rem totam unde voluptate. Ad aliquid assumenda, culpa, deserunt dolores eius eligendi eos ipsa ipsum laborum obcaecati quidem quod repellendus tempora tempore totam voluptatum. At, dicta?
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore error odit sed tempora. Cupiditate, dolores ducimus eveniet hic id ipsam ipsum labore magnam molestias non porro quasi quibusdam quos rem totam unde voluptate. Ad aliquid assumenda, culpa, deserunt dolores eius eligendi eos ipsa ipsum laborum obcaecati quidem quod repellendus tempora tempore totam voluptatum. At, dicta?
+&lt;/div&gt;
 </code>
 </pre>
         </template>
