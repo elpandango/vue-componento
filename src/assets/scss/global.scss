@@ -1,81 +1,8 @@
 @import "variables";
 @import "normalize";
-@import "margins";
 @import "forms";
-
-* {
-  box-sizing: border-box;
-}
-
-body, html {
-  font-family: $main-font;
-  color: $neutral-900;
-  background-color: $neutral-200;
-}
-
-.sidebar {
-  max-width: 250px;
-  width: 100%;
-}
-
-.main {
-  width: calc(100% - 250px);
-  padding: 16px 50px;
-}
-
-.page-content {
-  display: flex;
-  min-height: 100vh;
-}
-
-.container {
-  padding: 0 16px;
-}
-
-pre {
-  position: relative;
-}
-
-a {
-  color: inherit;
-}
-
-code.language-html {
-  & > span.token.tag:first-child {
-    position: absolute;
-    left: 17px;
-  }
-}
-
-.demo-block {
-  margin-bottom: 1rem;
-}
-
-.page-subtitle {
-
-}
-
-.no-overflow {
-  overflow: visible;
-}
-
-.component-description {
-  margin-bottom: 1.5rem;
-}
-
-.text-page-title {
-  font-size: 52px;
-}
-
-//text-align
-.text-left {
-  text-align: left;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
+@import "color-palette";
+@import "skeleton-classes";
+@import "main";
+@import "margins";
+@import "image-sizes";
