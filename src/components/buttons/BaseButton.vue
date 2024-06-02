@@ -1,11 +1,25 @@
 <template>
-  <button class="button">Button</button>
+  <button class="button"
+          :class="[size, status]">Button</button>
 </template>
 
 <script setup>
-
+const props = defineProps({
+  size: {
+    type: String,
+    required: false
+  },
+  label: {
+    type: String,
+    required: false
+  },
+  status: {
+    type: String,
+    required: false
+  }
+});
 </script>
-
+  
 <style
     scope
     src="./styles.scss"
