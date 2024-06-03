@@ -1,0 +1,53 @@
+.button {
+    padding: 5px 16px;
+    font-family: $main-font;
+    font-weight: 400;
+    font-size: $main-font-size;
+    /* line-height: 150%; */
+    border-radius: 4px;
+    color: $neutral-0;
+    border: transparent;
+    background-color: $primary-default;
+    cursor: pointer;
+    transition: all .3s;
+   
+    &:hover, 
+    &:focus,
+    &:active {
+      background-color: $primary-hover;
+
+    }
+    &:disabled {
+        background-color: $neutral-600;
+    }
+
+    &.small {
+        padding: 5px 14px;
+        font-size: 14px;
+      }
+    &.big {
+        padding: 8px 16px;
+      }
+    &.destructive {
+        background-color: $red-100;
+        &:hover, 
+        &:focus,
+        &:active {
+          background-color: $red-60;
+        }
+      }
+    &.white {
+        background-color: $neutral-0;
+        border: 1px solid $primary-default;
+        color: $primary-default;
+        &:hover, 
+        &:focus,
+        &:active {
+            background-color: $neutral-600;
+        }
+          &:disabled {
+            background-color: $neutral-400;
+        }
+      }
+  }
+
